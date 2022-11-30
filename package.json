@@ -1,0 +1,35 @@
+{
+  "name": "project-huntflow",
+  "version": "1.0.0",
+  "description": "проект для заказчика по подбору кандидатов",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielaKipilova/project-huntflow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielaKipilova/project-huntflow/issues"
+  },
+  "homepage": "https://github.com/DanielaKipilova/project-huntflow#readme",
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.26.0",
+    "sequelize-cli": "^6.5.2"
+  }
+}
