@@ -8,23 +8,23 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Candidate.init({
-    fullname: { 
+    fullname: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    phone: { 
+    phone: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    email: { 
+    email: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    telegram: { 
+    telegram: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    cv: { 
+    cv: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
