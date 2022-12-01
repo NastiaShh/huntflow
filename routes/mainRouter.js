@@ -2,7 +2,7 @@ const mainRouter = require('express').Router();
 const { Op } = require('sequelize');
 const { Candidate } = require('../db/models');
 const MainPage = require('../views/MainPage');
-// const Card = require('../views/Card');
+const CardList = require('../views/CardList');
 
 mainRouter.get('/api/candidates', async (req, res) => {
   const candidates = await Candidate.findAll();
@@ -19,7 +19,7 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
       id: 1
     },
   });
-  res.renderComponent(MainPage, { candidates });
+  res.renderComponent(CardList, { candidates });
 });
 
 module.exports = mainRouter;
