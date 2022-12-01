@@ -2,7 +2,7 @@ const React = require("react");
 
 module.exports = function Card({ candidateName, candidatePhoto }) {
   return (
-    <div className="card" style={{ width: '300px' }}>
+    <div className="card">
       <img src={candidatePhoto} className="card-img-top" alt="Фотография кандидата" />
       <div className="card-body">
         <h5 className="card-title">{candidateName}</h5>
