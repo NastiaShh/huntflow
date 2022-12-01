@@ -7,7 +7,7 @@ module.exports = function MainPage({ candidates }) {
     <Layout>
       <div className="container card-list">
         {candidates.map((candidate) => (
-          <Card candidateName={candidate.fullname} key={candidate.id}/>
+          <Card key={candidate.id} candidateName={candidate.fullname} candidatePhoto={candidate.photo} />
         ))}
       </div>
     </Layout>
