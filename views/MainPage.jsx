@@ -10,6 +10,8 @@ module.exports = function MainPage({ candidates }) {
           <Card key={candidate.id} candidateName={candidate.fullname} candidatePhoto={candidate.photo} />
         ))}
       </div>
+
+      {/* <script src="/js/candidates.js" defer /> */}
     </Layout>
   );
 };
