@@ -15,7 +15,7 @@ function Layout({ children }) {
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
           crossOrigin="anonymous"
         />
-        {/* <link rel="stylesheet" type="text/css" href="/css/style.css" /> */}
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
       </head>
       <body>
         <NavBar />
