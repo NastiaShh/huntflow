@@ -2,8 +2,7 @@ const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Candidate extends Model {
-    static associate({ Stage, Comment }) {
-      Candidate.Stage = Candidate.hasOne(Stage, { foreignKey: 'candidate_id' });
+    static associate({ Comment }) {
       Candidate.Comments = Candidate.hasMany(Comment, { foreignKey: 'candidate_id' });
     }
   }
@@ -28,6 +27,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    invitation_letter: DataTypes.DATE,
+    screening_call: DataTypes.DATE,
+    video_interview: DataTypes.DATE,
+    cv_sent: DataTypes.DATE,
+    interview_scheduled: DataTypes.DATE,
+    offer: DataTypes.DATE,
+    hired: DataTypes.DATE,
+    denied: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Candidate',

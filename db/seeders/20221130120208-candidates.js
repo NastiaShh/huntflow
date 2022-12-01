@@ -10,16 +10,17 @@ module.exports = {
         email: 'oleg.n@mail.ru',
         telegram: 't.me/oleg.n',
         cv: 'https://www.tvserial.it/wp-content/uploads/2021/10/i-protagonisti-di-brassic-credits-serially.jpeg',
-        Stage: [
+        invitation_letter: null,
+        screening_call: null,
+        video_interview: null,
+        cv_sent: null,
+        interview_scheduled: null,
+        offer: null,
+        hired: null,
+        denied: null,
+        Comments: [
           {
-            invitation_letter: null,
-            screening_call: null,
-            video_interview: null,
-            cv_sent: null,
-            interview_scheduled: null,
-            offer: null,
-            hired: null,
-            denied: null
+            comment: 'OK',
           },
         ],
       },
@@ -29,21 +30,17 @@ module.exports = {
         email: 'katya.b@yandex.ru',
         telegram: 't.me/katya.b',
         cv: 'https://www.tvserial.it/wp-content/uploads/2021/10/i-protagonisti-di-brassic-credits-serially.jpeg',
-        Stage: [
-          {
-            invitation_letter: null,
-            screening_call: null,
-            video_interview: null,
-            cv_sent: null,
-            interview_scheduled: null,
-            offer: null,
-            hired: null,
-            denied: null
-          },
-        ],
+        invitation_letter: new Date(2022, 11, 11, 12, 0),
+        screening_call: null,
+        video_interview: null,
+        cv_sent: null,
+        interview_scheduled: null,
+        offer: null,
+        hired: null,
+        denied: null,
         Comments: [
           {
-            comment: 'OK2',
+            comment: 'OK',
           },
         ],
       },
@@ -53,18 +50,14 @@ module.exports = {
         email: 'oxana.l@gmail.com',
         telegram: 't.me/oxana.l',
         cv: 'https://www.tvserial.it/wp-content/uploads/2021/10/i-protagonisti-di-brassic-credits-serially.jpeg',
-        Stage: [
-          {
-            invitation_letter: new Date(2022, 11, 11, 12, 0),
-            screening_call: new Date(2022, 11, 12),
-            video_interview: null,
-            cv_sent: null,
-            interview_scheduled: null,
-            offer: null,
-            hired: null,
-            denied: null
-          },
-        ],
+        invitation_letter: new Date(2022, 11, 11, 12, 0),
+        screening_call: new Date(2022, 11, 12),
+        video_interview: null,
+        cv_sent: null,
+        interview_scheduled: null,
+        offer: null,
+        hired: null,
+        denied: null,
         Comments: [
           {
             comment: 'OK',
@@ -73,7 +66,7 @@ module.exports = {
       },
     ],
     {
-      include: [Candidate.Stage, Candidate.Comments],
+      include: [Candidate.Comments],
     });
   },
 
