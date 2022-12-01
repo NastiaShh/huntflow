@@ -1,9 +1,10 @@
 const mainRouter = require('express').Router();
-
+const { Candidate } = require('../db/models');
 const MainPage = require('../views/MainPage');
 
 mainRouter.get('/', async (req, res) => {
-  res.renderComponent(MainPage);
+  const candidates = await Candidate.findAll();
+  res.renderComponent(MainPage, { candidates });
 });
 
 module.exports = mainRouter;

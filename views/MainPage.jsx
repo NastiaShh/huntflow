@@ -1,14 +1,13 @@
 const React = require('react');
 const Layout = require('./Layout');
 const Card = require('./Card');
-const candidate = require('../db/models/candidate');
 
-module.exports = function MainPage({ cards }) {
+module.exports = function MainPage({ candidates }) {
   return (
     <Layout>
       <div className="container card-list">
-        {cards.map((card) => (
-          <Card candidateName={candidateName} key={candidate.id}/>
+        {candidates.map((candidate) => (
+          <Card candidateName={candidate.fullname} key={candidate.id}/>
         ))}
       </div>
     </Layout>
