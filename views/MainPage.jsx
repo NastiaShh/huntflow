@@ -1,16 +1,12 @@
 const React = require('react');
 const Layout = require('./Layout');
-const Card = require('./Card');
-const candidate = require('../db/models/candidate');
+const CardList = require('./CardList');
 
-module.exports = function MainPage({ cards }) {
+module.exports = function MainPage({ candidates }) {
   return (
     <Layout>
-      <div className="container card-list">
-        {cards.map((card) => (
-          <Card candidateName={candidateName} key={candidate.id}/>
-        ))}
-      </div>
+      <CardList candidates={candidates} />
+      <script src="/js/candidates.js" defer />
     </Layout>
   );
 };

@@ -1,23 +1,25 @@
-const React = require('react');
+const React = require("react");
 
-module.exports = function Card( {candidateName} ) {
+module.exports = function Card({ candidateName, candidatePhoto }) {
   return (
-    <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="..." />
-  <div class="card-body">
-    <h5 class="card-title">{candidateName}</h5>
-    {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div className="card">
+      <img src={candidatePhoto} className="card-img-top" alt="Фотография кандидата" />
+      <div className="card-body">
+        <h5 className="card-title">{candidateName}</h5>
+        {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
+  <ul className="list-group list-group-flush">
+    <li className="list-group-item">An item</li>
+    <li className="list-group-item">A second item</li>
+    <li className="list-group-item">A third item</li>
   </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a> */}
-    <a href={`/candidate`} className="btn btn-info">Подробнее</a>
-  </div>
-</div>
+  <div className="card-body">
+    <a href="#" className="card-link">Card link</a>
+    <a href="#" className="card-link">Another link</a> */}
+        <a href="/candidate" className="btn btn-info">
+          Подробнее
+        </a>
+      </div>
+    </div>
   );
-}
+};
