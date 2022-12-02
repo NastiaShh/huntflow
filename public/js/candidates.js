@@ -11,3 +11,21 @@ document
       cardsContainer.insertAdjacentHTML('afterbegin', cards);
     }
   });
+
+  document
+  .querySelector('.card-list')
+  .addEventListener('click', async (event) => {
+    if (event.target.classList.contains('btn-info')) {
+      event.preventDefault();
+      const moreInfoButton = event.target;
+      const candidateCard = moreInfoButton.closest('.card');
+      const id = Number(candidateCard.id);
+
+      const data = await fetch(`/api/candidates/${id}`);
+      const candidate = await data.text();
+
+      const candidateInfoContainer = document.querySelector('.candidate-card');
+      candidateInfoContainer.innerHTML = '';
+      candidateInfoContainer.insertAdjacentHTML('afterbegin', candidate);
+    }
+  });
