@@ -20,7 +20,7 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
     where: {
       // createdAt: {
       //   // добавленные за последнюю неделю
-      //   [Op.gte]: new Date(new Date() - (7 * 24 * 60 * 60 * 1000)),
+      //   [Op.gte]: new Date(new Date().getTime() - (7 * 24 * 60 * 60 * 1000)),
       // },
       id: 1
     },
