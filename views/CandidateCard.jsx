@@ -1,6 +1,6 @@
 const React = require("react");
 
-module.exports = function CandidateCard({ candidate }) {
+module.exports = function CandidateCard({ candidate, hideSelect }) {
   return (
     <div id={candidate.id} className="canidate-info">
       <h5>ФИО:</h5>
@@ -15,14 +15,55 @@ module.exports = function CandidateCard({ candidate }) {
       <p>{candidate.cv}</p>
       <h5>Этапы подбора</h5>
       <h6>
-        Текущий этап: <span></span>
+        Текущий этап: <span>{candidate.current_stage}</span>
+        {hideSelect && (
+          <span><a href={`/api/candidates/change-stage`} className="change-stage">Изменить</a></span>
+        )}
+        <span>
+          {hideSelect && (
+            <form>
+              <select name="stage" id="city-select">
+                <option value="">-- Выберите этап --</option>
+                {!candidate.invitation_letter && (
+                  <option value="invitation_letter">Отправлено письмо-приглашение</option>
+                )}
+                {!candidate.screening_call && (
+                  <option value="screening_call">Назначен звонок-скрининг</option>
+                )}
+                {!candidate.video_interview && (
+                  <option value="video_interview">Назначено видеоинтервью</option>
+                )}
+                {!candidate.cv_sent && (
+                  <option value="cv_sent">Резюме передано заказчику</option>
+                )}
+                {!candidate.interview_scheduled && (
+                  <option value="interview_scheduled">Назначено интервью с заказчиком</option>
+                )}
+                {!candidate.offer && (
+                  <option value="offer">Выставлен оффер</option>
+                )}
+                {!candidate.hired && (
+                  <option value="hired">Вышел на работу</option>
+                )}
+                {!candidate.denied && (
+                  <option value="denied">Отказ</option>
+                )}
+              </select>
+            </form>
+          )}
+        </span>
       </h6>
       <h6>История прохождения этапов подбора:</h6>
       <table className="table table-borderless">
         <tr>
           <th>Название этапа</th>
-          <th>Дата прохождения</th>
-          <th>Время прохождения</th>
+          <th>Дата</th>
+          <th>Время</th>
+        </tr>
+        <tr>
+          <td>Кандидат добавлен в систему</td>
+          <td>{candidate.createdAt.toDateString()}</td>
+          <td>{candidate.createdAt.toTimeString().slice(0, 5)}</td>
         </tr>
         {candidate.invitation_letter && (
           <tr>
