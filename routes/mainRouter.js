@@ -1,5 +1,5 @@
 const mainRouter = require('express').Router();
-const { Op } = require('sequelize');
+// const { Op } = require('sequelize');
 const { Candidate } = require('../db/models');
 const MainPage = require('../views/MainPage');
 const CardList = require('../views/CardList');
@@ -27,6 +27,19 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
   });
   res.renderComponent(CardList, { candidates });
 });
+
+
+mainRouter.post('/api/candidates', async (req,res)=> {
+  // console.log(req.body);
+  const {pic,name,phone,email,telegram,cv} = req.body;
+  // console.log(name, contacts, pic);
+
+ try {const newCandidate = await Candidate.create({photo: pic, fullname: name,phone,email,telegram,cv, })
+  res.json(newCandidate);
+} catch(error){
+  console.log(error.message);
+}
+})
 
 mainRouter.get('/api/candidates/invitation-letters', async (req, res) => {
   const candidates = await Candidate.findAll({
@@ -89,9 +102,5 @@ mainRouter.get('/api/candidates/:id', async (req, res) => {
   console.log(candidate);
   res.renderComponent(CandidateCard, { candidate, hideSelect: true });
 });
-
-mainRouter.post('/api/candidates/change-stage', (req, res) => {
-  
-})
 
 module.exports = mainRouter;
