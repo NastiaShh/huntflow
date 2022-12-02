@@ -1,5 +1,5 @@
 const mainRouter = require('express').Router();
-const { Op } = require('sequelize');
+// const { Op } = require('sequelize');
 const { Candidate } = require('../db/models');
 const MainPage = require('../views/MainPage');
 const CardList = require('../views/CardList');
@@ -21,5 +21,17 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
   });
   res.renderComponent(CardList, { candidates });
 });
+
+mainRouter.post('/api/candidates', async (req,res)=> {
+  // console.log(req.body);
+  const { name, contacts, pic } = req.body;
+  // console.log(name, contacts, pic);
+
+ try {const newCandidate = await Candidate.create({fullname: name,phone: contacts, photo: pic })
+  res.json(newCandidate);
+} catch(error){
+  console.log(error.message);
+}
+})
 
 module.exports = mainRouter;
