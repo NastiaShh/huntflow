@@ -18,5 +18,18 @@ addCandidateForm.addEventListener('submit', async (event)=> {
   }),
 });
 const data = await response.json();
+const html = `
+<div class="card">
+      <img src=${data.photo} class="card-img-top" alt="Фотография кандидата" />
+      <div class="card-body">
+        <h5 class="card-title">${data.fullname}</h5>
+        <a href="/candidate" class="btn btn-info">
+          Подробнее
+        </a>
+      </div>
+    </div>
+`
+
+document.querySelector('.card-list').insertAdjacentHTML('beforeend', html)
 
 })
