@@ -3,6 +3,7 @@ const { Op } = require('sequelize');
 const { Candidate } = require('../db/models');
 const MainPage = require('../views/MainPage');
 const CardList = require('../views/CardList');
+const CandidateCard = require('../views/CandidateCard');
 
 mainRouter.get('/api/candidates', async (req, res) => {
   const candidates = await Candidate.findAll();
@@ -20,6 +21,11 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
     },
   });
   res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/:id', async (req, res) => {
+  const candidate = await Candidate.findOne({ where: { id: Number(req.params.id) }});
+  res.renderComponent(CandidateCard, { candidate });
 });
 
 module.exports = mainRouter;
