@@ -39,13 +39,19 @@ function Modal() {
                 action="/api/candidates"
                 method="POST"
               >
-                <p>Загрузите файл с картинкой:</p>
+                <p>Загрузите фотографию:</p>
                 <input type="text" name="pic" />
-                <p>ФИО</p>
+                <p>ФИО:</p>
                 <input className="form-control" name="name" type="text" />
-                <p>Контактная информация:</p>
+                <p>Номер телефона:</p>
+                <input className="form-control" name="phone" type="text" />
+                <p>Email:</p>
+                <input className="form-control" name="email" type="text" />
+                <p>Телеграм:</p>
+                <input className="form-control" name="telegram" type="text" />
+                <p>Ссылка на hh:</p>
                 <input
-                  name="contacts"
+                  name="cv"
                   type="text"
                   className="form-control"
                   id="exampleFormControlTextarea1"

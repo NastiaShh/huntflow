@@ -24,10 +24,10 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
 
 mainRouter.post('/api/candidates', async (req,res)=> {
   // console.log(req.body);
-  const { name, contacts, pic } = req.body;
+  const {pic,name,phone,email,telegram,cv} = req.body;
   // console.log(name, contacts, pic);
 
- try {const newCandidate = await Candidate.create({fullname: name,phone: contacts, photo: pic })
+ try {const newCandidate = await Candidate.create({photo: pic, fullname: name,phone,email,telegram,cv, })
   res.json(newCandidate);
 } catch(error){
   console.log(error.message);
