@@ -3,7 +3,7 @@
     "username": "postgres",
     "password": "postgres",
     "database": "huntflow",
-    "host": "172.30.116.184",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {

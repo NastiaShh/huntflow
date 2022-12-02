@@ -23,9 +23,18 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
   res.renderComponent(CardList, { candidates });
 });
 
+mainRouter.get('/api/candidates/all-candidates', async (req, res) => {
+  const candidates = await Candidate.findAll();
+  res.renderComponent(CardList, { candidates });
+});
+
 mainRouter.get('/api/candidates/:id', async (req, res) => {
   const candidate = await Candidate.findOne({ where: { id: Number(req.params.id) }});
-  res.renderComponent(CandidateCard, { candidate });
+  const stages = await Candidate.findOne({
+    where: { id: Number(req.params.id) },
+    attributes: ['invitation_letter', 'screening_call', 'video_interview', 'cv_sent', 'interview_scheduled', 'offer', 'hired', 'denied'],
+  });
+  res.renderComponent(CandidateCard, { candidate, stages });
 });
 
 module.exports = mainRouter;
