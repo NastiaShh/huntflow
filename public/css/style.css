@@ -1,10 +1,17 @@
+main {
+  display: flex;
+}
+
 .container {
-  max-width: 50%;
   margin: 50px auto 0 5%;
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   /* justify-content: space-around; */
+}
+
+.cards {
+  width: 60%;
 }
 
 .card {
@@ -15,4 +22,13 @@
 .card-img-top {
   height: 375px;
   object-fit: cover;
+}
+
+.candidate-card {
+  width: 40%;
+  border-left: 1px solid rgb(0, 0, 0);
+}
+
+.canidate-info {
+  padding: 20px;
 }
