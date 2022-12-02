@@ -10,6 +10,11 @@ mainRouter.get('/api/candidates', async (req, res) => {
   res.renderComponent(MainPage, { candidates });
 });
 
+mainRouter.get('/api/candidates/all-candidates', async (req, res) => {
+  const candidates = await Candidate.findAll();
+  res.renderComponent(CardList, { candidates });
+});
+
 mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: {
@@ -23,18 +28,65 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
   res.renderComponent(CardList, { candidates });
 });
 
-mainRouter.get('/api/candidates/all-candidates', async (req, res) => {
-  const candidates = await Candidate.findAll();
+mainRouter.get('/api/candidates/invitation-letters', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { invitation_letter: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/screening-call', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { screening_call: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/video-interview', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { video_interview: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/cv-sent', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { cv_sent: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/interview-scheduled', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { interview_scheduled: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/offers', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { offer: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/hired', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { hired: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/denied', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { denied: {[Op.not]: null}},
+  });
   res.renderComponent(CardList, { candidates });
 });
 
 mainRouter.get('/api/candidates/:id', async (req, res) => {
   const candidate = await Candidate.findOne({ where: { id: Number(req.params.id) }});
-  const stages = await Candidate.findOne({
-    where: { id: Number(req.params.id) },
-    attributes: ['invitation_letter', 'screening_call', 'video_interview', 'cv_sent', 'interview_scheduled', 'offer', 'hired', 'denied'],
-  });
-  res.renderComponent(CandidateCard, { candidate, stages });
+  res.renderComponent(CandidateCard, { candidate });
 });
 
 module.exports = mainRouter;
