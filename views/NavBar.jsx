@@ -6,7 +6,7 @@ module.exports = function NavBar() {
       className="navbar navbar-dark bg-dark"
       style={{ display: "flex", justifyContent: "space-around" }}
     >
-      <a className="navbar-brand all-candidates" href="/api/candidates">
+      <a className="navbar-brand all-candidates" href="/api/candidates/all-candidates">
         Все кандидаты
       </a>
       <a className="navbar-brand new-candidates" href="/api/candidates/new-candidates">

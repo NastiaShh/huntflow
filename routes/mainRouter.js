@@ -10,6 +10,11 @@ mainRouter.get('/api/candidates', async (req, res) => {
   res.renderComponent(MainPage, { candidates });
 });
 
+mainRouter.get('/api/candidates/all-candidates', async (req, res) => {
+  const candidates = await Candidate.findAll();
+  res.renderComponent(CardList, { candidates });
+});
+
 mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: {
