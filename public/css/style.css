@@ -3,7 +3,6 @@ main {
 }
 
 .container {
-  /* max-width: 50%; */
   margin: 50px auto 0 5%;
   display: flex;
   gap: 20px;
@@ -12,7 +11,7 @@ main {
 }
 
 .cards {
-  max-width: 60%;
+  width: 60%;
 }
 
 .card {
@@ -28,4 +27,8 @@ main {
 .candidate-card {
   width: 40%;
   border-left: 1px solid rgb(0, 0, 0);
+}
+
+.canidate-info {
+  padding: 20px;
 }
