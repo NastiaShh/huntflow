@@ -28,6 +28,62 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
   res.renderComponent(CardList, { candidates });
 });
 
+mainRouter.get('/api/candidates/invitation-letters', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { invitation_letter: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/screening-call', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { screening_call: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/video-interview', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { video_interview: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/cv-sent', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { cv_sent: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/interview-scheduled', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { interview_scheduled: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/offers', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { offer: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/hired', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { hired: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
+mainRouter.get('/api/candidates/denied', async (req, res) => {
+  const candidates = await Candidate.findAll({
+    where: { denied: {[Op.not]: null}},
+  });
+  res.renderComponent(CardList, { candidates });
+});
+
 mainRouter.get('/api/candidates/:id', async (req, res) => {
   const candidate = await Candidate.findOne({ where: { id: Number(req.params.id) }});
   res.renderComponent(CandidateCard, { candidate });
