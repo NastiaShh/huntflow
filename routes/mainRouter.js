@@ -86,7 +86,12 @@ mainRouter.get('/api/candidates/denied', async (req, res) => {
 
 mainRouter.get('/api/candidates/:id', async (req, res) => {
   const candidate = await Candidate.findOne({ where: { id: Number(req.params.id) }});
-  res.renderComponent(CandidateCard, { candidate });
+  console.log(candidate);
+  res.renderComponent(CandidateCard, { candidate, hideSelect: true });
 });
+
+mainRouter.post('/api/candidates/change-stage', (req, res) => {
+  
+})
 
 module.exports = mainRouter;
