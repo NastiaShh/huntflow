@@ -2,7 +2,7 @@ const React = require("react");
 
 function Modal() {
   return (
-    <div className="container">
+    <div>
       <button
         type="button"
         className="btn btn-primary js-add-candidate-btn"
