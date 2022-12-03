@@ -1,4 +1,5 @@
 const React = require("react");
+const Comments = require('./Comments');
 
 module.exports = function CandidateCard({ candidate, hideSelect }) {
   return (
@@ -122,6 +123,14 @@ module.exports = function CandidateCard({ candidate, hideSelect }) {
           </tr>
         )}
       </table>
+      <h5>Комментарии:</h5>
+      {candidate.Comments.length > 0 && (
+        <Comments candidate={candidate} />
+      )}
+      <form className="comment-form">
+        <button type="submit" className="btn btn-outline-primary">Добавить</button>
+        <input type="text" className="form-control" placeholder="Комментарий" />
+      </form>
     </div>
   );
 };

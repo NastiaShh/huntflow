@@ -5,7 +5,7 @@ function Modal() {
     <div>
       <button
         type="button"
-        className="btn btn-primary js-add-candidate-btn"
+        className="btn btn-outline-info js-add-candidate-btn"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >

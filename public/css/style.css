@@ -50,3 +50,12 @@ main {
 .btn-info {
   margin: 0 auto;
 }
+
+.comment-form {
+  display: flex;
+  column-gap: 10px;
+}
+
+.form-control {
+  max-width: 80%;
+}
