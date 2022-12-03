@@ -105,6 +105,7 @@ mainRouter.get('/api/candidates/denied', async (req, res) => {
 mainRouter.get('/api/candidates/:id', async (req, res) => {
   const candidate = await Candidate.findOne({
     where: { id: Number(req.params.id) },
+    include: [Candidate.Comments],
   });
   res.renderComponent(CandidateCard, { candidate, hideSelect: true });
 });
