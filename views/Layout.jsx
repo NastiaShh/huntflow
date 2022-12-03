@@ -1,5 +1,5 @@
 const React = require("react");
-const Modal = require("./Modal");
+// const Modal = require("./Modal");
 const NavBar = require("./NavBar");
 
 function Layout({ children }) {
@@ -28,7 +28,7 @@ function Layout({ children }) {
       </head>
       <body>
         <NavBar />
-        <Modal />
+        {/* <Modal /> */}
         {children}
       </body>
     </html>

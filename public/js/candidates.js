@@ -1,3 +1,5 @@
+const candidateInfoContainer = document.querySelector('.candidate-card');
+
 document.querySelector('nav').addEventListener('click', async (event) => {
   event.preventDefault();
   if (event.target.classList.contains('navbar-brand')) {
@@ -7,6 +9,7 @@ document.querySelector('nav').addEventListener('click', async (event) => {
     const cardsContainer = document.querySelector('.container');
     cardsContainer.innerHTML = '';
     cardsContainer.insertAdjacentHTML('afterbegin', cards);
+    candidateInfoContainer.innerHTML = '';
   }
 });
 
@@ -22,7 +25,6 @@ document
       const data = await fetch(`/api/candidates/${id}`);
       const candidate = await data.text();
 
-      const candidateInfoContainer = document.querySelector('.candidate-card');
       candidateInfoContainer.innerHTML = '';
       candidateInfoContainer.insertAdjacentHTML('afterbegin', candidate);
     }
