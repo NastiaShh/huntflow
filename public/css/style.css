@@ -27,6 +27,10 @@ main {
   text-align: center;
 }
 
+.empty-card-body {
+  justify-content: center;
+}
+
 .card-img-top {
   height: 375px;
   object-fit: cover;
@@ -41,10 +45,6 @@ main {
   padding: 20px;
   position: sticky;
   top: 0;
-}
-
-.btn {
-  margin: auto;
 }
 
 .btn-info {
