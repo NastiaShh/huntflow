@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    current_stage: DataTypes.TEXT,
     invitation_letter: DataTypes.DATE,
     screening_call: DataTypes.DATE,
     video_interview: DataTypes.DATE,
