@@ -13,7 +13,14 @@ document.querySelector('nav').addEventListener('click', async (event) => {
     const cardsContainer = document.querySelector('.container');
     cardsContainer.innerHTML = '';
     cardsContainer.insertAdjacentHTML('afterbegin', cards);
-    candidateInfoContainer.innerHTML = '';
+    candidateInfoContainer.innerHTML = `
+      <div class='main-card'>
+        <h1 class='huntflow-title'>Huntflow</h1>
+        <h2 class='huntflow-subtitle'>сервис для трекинга кандидатов</h2>
+        <img src="/img/Man_and_woman_with_briefcase_shake_hand_generated.jpg" class="background-img" alt="Man and woman"/>
+      </div>
+    `;
+    classList.add('active-link');
   }
 });
 
