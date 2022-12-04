@@ -39,35 +39,37 @@ document
       candidateInfoContainer.innerHTML = '';
       candidateInfoContainer.insertAdjacentHTML('afterbegin', candidate);
 
-      document.querySelector('.change-stage-form')
+      document.querySelector('#change-stage-form')
       .addEventListener('submit', async (event) => {
         event.preventDefault();
         const form = event.target;
         const select = document.getElementById('stage-select');
         const stageValue = select.value;
-        const stageText = select.options[select.selectedIndex].text;
+        if (stageValue) {
+          const stageText = select.options[select.selectedIndex].text;
 
-        const response = await fetch(`/api/candidates/stage/${id}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ stageValue, stageText }),
-        });
-        const currentDate = await response.text();
-        const currentStage = document.querySelector('.current-stage');
-        currentStage.innerText = stageText;
-        const newStageRow = `
-          <tr>
-            <td>${stageText}</td>
-            <td>${currentDate.toLocaleString().slice(0, 10)}</td>
-            <td>${currentDate.toLocaleString().slice(11)}</td>
-          </tr>
-        `
-        const stagesHistoryTable = document.querySelector('#stages-history');
-        stagesHistoryTable.insertAdjacentHTML('beforeend', newStageRow);
-        form.reset();
-      })
+          const response = await fetch(`/api/candidates/stage/${id}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ stageValue, stageText }),
+          });
+          const currentDate = await response.text();
+          const currentStage = document.querySelector('.current-stage');
+          currentStage.innerText = stageText;
+          const newStageRow = `
+            <tr>
+              <td>${stageText}</td>
+              <td>${currentDate.toLocaleString().slice(1, 11)}</td>
+              <td>${currentDate.toLocaleString().slice(12, 20)}</td>
+            </tr>
+          `;
+          const stagesHistoryTable = document.querySelector('#stages-history');
+          stagesHistoryTable.insertAdjacentHTML('beforeend', newStageRow);
+          form.reset();
+        }
+      });
 
       document.querySelector('.comment-form')
       .addEventListener('submit', async (event) => {
