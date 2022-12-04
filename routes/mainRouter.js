@@ -6,7 +6,11 @@ const CardList = require('../views/CardList');
 const CandidateCard = require('../views/CandidateCard');
 
 mainRouter.get('/api/candidates', async (req, res) => {
-  const candidates = await Candidate.findAll();
+  const candidates = await Candidate.findAll({
+    order: [
+      ['id', 'ASC'],
+    ],
+  });
   res.renderComponent(MainPage, { candidates });
 });
 
@@ -29,19 +33,25 @@ mainRouter.post('/api/candidates', async (req, res) => {
 });
 
 mainRouter.get('/api/candidates/all-candidates', async (req, res) => {
-  const candidates = await Candidate.findAll();
+  const candidates = await Candidate.findAll({
+    order: [
+      ['id', 'ASC'],
+    ],
+  });
   res.renderComponent(CardList, { candidates });
 });
 
 mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: {
-      // createdAt: {
-      //   // добавленные за последнюю неделю
-      //   [Op.gte]: new Date(new Date().getTime() - (7 * 24 * 60 * 60 * 1000)),
-      // },
-      id: 1
+      createdAt: {
+        // добавленные за последнюю неделю
+        [Op.gte]: new Date(new Date().getTime() - (7 * 24 * 60 * 60 * 1000)),
+      },
     },
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   res.renderComponent(CardList, { candidates });
 });
@@ -49,6 +59,9 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
 mainRouter.get('/api/candidates/invitation-letters', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: { invitation_letter: {[Op.not]: null}},
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   res.renderComponent(CardList, { candidates });
 });
@@ -56,6 +69,9 @@ mainRouter.get('/api/candidates/invitation-letters', async (req, res) => {
 mainRouter.get('/api/candidates/screening-call', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: { screening_call: {[Op.not]: null}},
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   res.renderComponent(CardList, { candidates });
 });
@@ -63,6 +79,9 @@ mainRouter.get('/api/candidates/screening-call', async (req, res) => {
 mainRouter.get('/api/candidates/video-interview', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: { video_interview: {[Op.not]: null}},
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   res.renderComponent(CardList, { candidates });
 });
@@ -70,6 +89,9 @@ mainRouter.get('/api/candidates/video-interview', async (req, res) => {
 mainRouter.get('/api/candidates/cv-sent', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: { cv_sent: {[Op.not]: null}},
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   res.renderComponent(CardList, { candidates });
 });
@@ -77,6 +99,9 @@ mainRouter.get('/api/candidates/cv-sent', async (req, res) => {
 mainRouter.get('/api/candidates/interview-scheduled', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: { interview_scheduled: {[Op.not]: null}},
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   res.renderComponent(CardList, { candidates });
 });
@@ -84,6 +109,9 @@ mainRouter.get('/api/candidates/interview-scheduled', async (req, res) => {
 mainRouter.get('/api/candidates/offers', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: { offer: {[Op.not]: null}},
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   res.renderComponent(CardList, { candidates });
 });
@@ -91,6 +119,9 @@ mainRouter.get('/api/candidates/offers', async (req, res) => {
 mainRouter.get('/api/candidates/hired', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: { hired: {[Op.not]: null}},
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   res.renderComponent(CardList, { candidates });
 });
@@ -98,6 +129,9 @@ mainRouter.get('/api/candidates/hired', async (req, res) => {
 mainRouter.get('/api/candidates/denied', async (req, res) => {
   const candidates = await Candidate.findAll({
     where: { denied: {[Op.not]: null}},
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   res.renderComponent(CardList, { candidates });
 });

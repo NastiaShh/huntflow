@@ -114,3 +114,7 @@ main {
   color: black;
   text-decoration: none;
 }
+
+.btn-outline-success {
+  margin-left: 10px;
+}
