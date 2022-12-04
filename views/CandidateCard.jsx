@@ -4,17 +4,18 @@ const Comments = require('./Comments');
 module.exports = function CandidateCard({ candidate }) {
   return (
     <div id={candidate.id} className="candidate-info">
+      <h4>Информация об кандидате</h4>
       <h5>ФИО:</h5>
       <p>{candidate.fullname}</p>
       <h5>Телефон:</h5>
       <p>{candidate.phone}</p>
       <h5>Email:</h5>
-      <a className="candidate-contact" href={'mailto:' + candidate.email} rel="noreferrer" target='_blank'>{candidate.email}</a>
+      <p><a className="candidate-contact" href={'mailto:' + candidate.email} rel="noreferrer" target='_blank'>{candidate.email}</a></p>
       <h5>Телеграм:</h5>
-      <a className="candidate-contact" href={'https://' + candidate.telegram} rel="noreferrer" target='_blank'>{candidate.telegram}</a>
+      <p><a className="candidate-contact" href={'https://' + candidate.telegram} rel="noreferrer" target='_blank'>{candidate.telegram}</a></p>
       <h5>Резюме:</h5>
       <p>{candidate.cv}</p>
-      <h5>Этапы подбора</h5>
+      <h5 className="h5-stages">Этапы подбора</h5>
       <h6>Текущий этап:</h6> <span className="current-stage">{candidate.current_stage}</span>
         <span>
             <form id='change-stage-form'>
@@ -45,7 +46,7 @@ module.exports = function CandidateCard({ candidate }) {
                   <option value="denied">Отказ</option>
                 )}
               </select>
-              <button type="submit" className="btn btn-success">Изменить</button>
+              <button type="submit" className="btn btn-success button">Изменить</button>
             </form>
         </span>
       <h6>История прохождения этапов подбора:</h6>
@@ -117,12 +118,12 @@ module.exports = function CandidateCard({ candidate }) {
           </tr>
         )}
       </table>
-      <h5>Комментарии:</h5>
+      <h5 className="h5-comments">Комментарии:</h5>
       {candidate.Comments.length > 0 && (
         <Comments comments={candidate.Comments} />
       )}
       <form className="comment-form" >
-        <button type="submit" className="btn btn-outline-primary">Добавить</button>
+        <button type="submit" className="btn btn-outline-primary button">Добавить</button>
         <input type="text" name="comment" className="form-control" placeholder="Комментарий" />
       </form>
     </div>
