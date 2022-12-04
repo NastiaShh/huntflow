@@ -3,6 +3,14 @@ const React = require("react");
 function Modal() {
   return (
     <div className="container">
+      <button
+        type="button"
+        className="btn btn-info js-add-candidate-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Добавить кандидата
+      </button>
       <div
         className="modal fade"
         id="exampleModal"
