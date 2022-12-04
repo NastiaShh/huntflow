@@ -9,7 +9,7 @@ module.exports = function CardList({ candidates }) {
         <img src='/img/20180125_001_1_.jpg' className="card-img-top" alt="Фотография кандидата" />
         <div className="card-body">
           <a href={`/api/candidates/`} className="btn btn-info btn-new-candidate">
-            Добавить нового кандидата
+            Добавить кандидата
           </a>
         </div>
       </div>

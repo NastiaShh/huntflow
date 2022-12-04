@@ -3,7 +3,7 @@ const React = require('react');
 module.exports = function NavBar() {
   return (
     <nav
-      className="navbar navbar-dark bg-dark"
+      className="navbar navbar-dark bg-dark nav"
       style={{ display: "flex", justifyContent: "space-around" }}
     >
       <a className="navbar-brand all-candidates" href="/api/candidates/all-candidates">
