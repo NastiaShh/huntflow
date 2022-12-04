@@ -125,11 +125,11 @@ module.exports = function CandidateCard({ candidate, hideSelect }) {
       </table>
       <h5>Комментарии:</h5>
       {candidate.Comments.length > 0 && (
-        <Comments candidate={candidate} />
+        <Comments comments={candidate.Comments} />
       )}
-      <form className="comment-form">
+      <form className="comment-form" >
         <button type="submit" className="btn btn-outline-primary">Добавить</button>
-        <input type="text" className="form-control" placeholder="Комментарий" />
+        <input type="text" name="comment" className="form-control" placeholder="Комментарий" />
       </form>
     </div>
   );
