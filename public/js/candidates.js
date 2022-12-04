@@ -3,13 +3,24 @@ const candidateInfoContainer = document.querySelector('.candidate-card');
 document.querySelector('nav').addEventListener('click', async (event) => {
   event.preventDefault();
   if (event.target.classList.contains('navbar-brand')) {
-    const { href } = event.target;
+    const { href, classList } = event.target;
+    const links = document.querySelectorAll('.navbar-brand');
+    links.forEach((link) => {
+      if (link.classList.contains('active-link')) link.classList.remove('active-link');
+    });
     const data = await fetch(href);
     const cards = await data.text();
     const cardsContainer = document.querySelector('.container');
     cardsContainer.innerHTML = '';
     cardsContainer.insertAdjacentHTML('afterbegin', cards);
-    candidateInfoContainer.innerHTML = '';
+    candidateInfoContainer.innerHTML = `
+      <div class='main-card'>
+        <h1 class='huntflow-title'>Huntflow</h1>
+        <h2 class='huntflow-subtitle'>сервис для трекинга кандидатов</h2>
+        <img src="/img/Man_and_woman_with_briefcase_shake_hand_generated.jpg" class="background-img" alt="Man and woman"/>
+      </div>
+    `;
+    classList.add('active-link');
   }
 });
 
