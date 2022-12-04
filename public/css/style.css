@@ -2,6 +2,10 @@ main {
   display: flex;
 }
 
+.nav {
+  background-color: #0a3140!important;
+}
+
 .container {
   padding: 0;
   display: flex;
@@ -10,14 +14,20 @@ main {
   justify-content: center;
 }
 
+.background-img {
+  max-width: 100%;
+}
+
 .cards {
   width: 60%;
-  margin: 50px 5%;
+  padding: 50px 5%;
+  background-color: #99d3ff;
 }
 
 .card {
   width: 300px;
   height: 500px;
+  /* border: 5px solid white; */
 }
 
 .card-body {
@@ -38,10 +48,9 @@ main {
 
 .candidate-card {
   width: 40%;
-  border-left: 1px solid rgb(0, 0, 0);
 }
 
-.canidate-info {
+.candidate-info {
   height: 100vh;
   padding: 20px;
   position: sticky;
@@ -51,6 +60,34 @@ main {
 
 .btn-info {
   margin: 0 auto;
+  background-color: #fff;
+  border-radius: 1.5rem;
+}
+
+.btn-info:hover {
+  background-color: #a63247;
+  color: #fff;
+  border-color: #a63247;
+}
+
+.btn-info:active {
+  background-color: #fff!important;
+}
+
+.huntflow-title {
+  color: #a63247;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.huntflow-subtitle {
+  text-align: center;
+  font-size: 20px;
+}
+
+.main-card {
+  position: sticky;
 }
 
 .comment-form {

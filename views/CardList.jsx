@@ -9,7 +9,7 @@ module.exports = function CardList({ candidates }) {
         <img src="/img/20180125_001_1_.jpg" className="card-img-top" alt="Новый кандидат" style={{opacity: "0.5"}}/>
         <div className="card-body empty-card-body">
           {/* <a href="/api/candidates/" className="btn btn-info" >
-            Добавить нового кандидата
+            Добавить кандидата
           </a> */}
           <Modal />
         </div>
