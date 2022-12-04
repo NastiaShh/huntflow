@@ -110,6 +110,17 @@ mainRouter.get('/api/candidates/:id', async (req, res) => {
   res.renderComponent(CandidateCard, { candidate, hideSelect: true });
 });
 
+mainRouter.post('/api/candidates/stage/:id', async (req, res) => {
+  const candidate = await Candidate.findByPk(Number(req.params.id));
+  const { stageValue, stageText } = req.body;
+  const currentDate = new Date();
+  candidate[stageValue] = currentDate;
+  candidate.current_stage = stageText;
+
+  await candidate.save();
+  res.send(currentDate);
+});
+
 mainRouter.post('/api/candidates/:id', async (req, res) => {
   const newComment = await Comment.create(req.body, {candidate_id: req.params.id});
   newComment.candidate_id = req.params.id;

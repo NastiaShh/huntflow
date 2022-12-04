@@ -15,11 +15,10 @@ module.exports = function CandidateCard({ candidate }) {
       <h5>Резюме:</h5>
       <p>{candidate.cv}</p>
       <h5>Этапы подбора</h5>
-      <h6>
-        Текущий этап: <span className="current-stage">{candidate.current_stage}</span>
+      <h6>Текущий этап:</h6> <span className="current-stage">{candidate.current_stage}</span>
         <span>
-            <form id='change-stage' method="put">
-              <select name="stage" id="city-select">
+            <form id='change-stage-form'>
+              <select name="stage" id="stage-select">
                 <option value="">-- Изменить этап --</option>
                 {!candidate.invitation_letter && (
                   <option value="invitation_letter">Отправлено письмо-приглашение</option>
@@ -46,12 +45,11 @@ module.exports = function CandidateCard({ candidate }) {
                   <option value="denied">Отказ</option>
                 )}
               </select>
-              <input type="submit" className="btn btn-success" value="Изменить" />
+              <button type="submit" className="btn btn-success">Изменить</button>
             </form>
         </span>
-      </h6>
       <h6>История прохождения этапов подбора:</h6>
-      <table className="table table-borderless">
+      <table className="table table-borderless" id="stages-history">
         <tr>
           <th>Название этапа</th>
           <th>Дата</th>
