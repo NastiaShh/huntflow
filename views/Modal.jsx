@@ -11,7 +11,7 @@ function Modal() {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal-content" style={{textAlign: 'left'}}>
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Новый кандидат:
@@ -48,7 +48,7 @@ function Modal() {
                   id="exampleFormControlTextarea1"
                   rows="3"
                 />
-                <button className="btn btn-primary saveBtn" type="submit">
+                <button className="btn btn-primary" type="submit">
                   Сохранить
                 </button>
               </form>

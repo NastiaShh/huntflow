@@ -37,6 +37,10 @@ main {
   text-align: center;
 }
 
+.empty-card-body {
+  justify-content: center;
+}
+
 .card-img-top {
   height: 375px;
   object-fit: cover;
@@ -47,13 +51,11 @@ main {
 }
 
 .candidate-info {
+  height: 100vh;
   padding: 20px;
   position: sticky;
   top: 0;
-}
-
-.btn {
-  margin: auto;
+  overflow: scroll;
 }
 
 .btn-info {
@@ -86,4 +88,13 @@ main {
 
 .main-card {
   position: sticky;
+}
+
+.comment-form {
+  display: flex;
+  column-gap: 10px;
+}
+
+.form-control {
+  max-width: 80%;
 }

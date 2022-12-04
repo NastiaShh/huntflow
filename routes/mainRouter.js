@@ -1,6 +1,6 @@
 const mainRouter = require('express').Router();
-// const { Op } = require('sequelize');
-const { Candidate } = require('../db/models');
+const { Op } = require('sequelize');
+const { Candidate, Comment } = require('../db/models');
 const MainPage = require('../views/MainPage');
 const CardList = require('../views/CardList');
 const CandidateCard = require('../views/CandidateCard');
@@ -8,6 +8,24 @@ const CandidateCard = require('../views/CandidateCard');
 mainRouter.get('/api/candidates', async (req, res) => {
   const candidates = await Candidate.findAll();
   res.renderComponent(MainPage, { candidates });
+});
+
+mainRouter.post('/api/candidates', async (req, res) => {
+  const { pic, name, phone, email, telegram, cv } = req.body;
+
+  try {
+    const newCandidate = await Candidate.create({
+      photo: pic,
+      fullname: name,
+      phone,
+      email,
+      telegram,
+      cv,
+    });
+    res.json(newCandidate);
+  } catch (error) {
+    console.error(error.message);
+  }
 });
 
 mainRouter.get('/api/candidates/all-candidates', async (req, res) => {
@@ -27,19 +45,6 @@ mainRouter.get('/api/candidates/new-candidates', async (req, res) => {
   });
   res.renderComponent(CardList, { candidates });
 });
-
-
-mainRouter.post('/api/candidates', async (req,res)=> {
-  // console.log(req.body);
-  const {pic,name,phone,email,telegram,cv} = req.body;
-  // console.log(name, contacts, pic);
-
- try {const newCandidate = await Candidate.create({photo: pic, fullname: name,phone,email,telegram,cv, })
-  res.json(newCandidate);
-} catch(error){
-  console.log(error.message);
-}
-})
 
 mainRouter.get('/api/candidates/invitation-letters', async (req, res) => {
   const candidates = await Candidate.findAll({
@@ -98,9 +103,18 @@ mainRouter.get('/api/candidates/denied', async (req, res) => {
 });
 
 mainRouter.get('/api/candidates/:id', async (req, res) => {
-  const candidate = await Candidate.findOne({ where: { id: Number(req.params.id) }});
-  console.log(candidate);
+  const candidate = await Candidate.findOne({
+    where: { id: Number(req.params.id) },
+    include: [Candidate.Comments],
+  });
   res.renderComponent(CandidateCard, { candidate, hideSelect: true });
+});
+
+mainRouter.post('/api/candidates/:id', async (req, res) => {
+  const newComment = await Comment.create(req.body, {candidate_id: req.params.id});
+  newComment.candidate_id = req.params.id;
+  await newComment.save();
+  res.send(newComment.comment);
 });
 
 module.exports = mainRouter;
