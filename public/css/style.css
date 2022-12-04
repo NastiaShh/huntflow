@@ -58,11 +58,11 @@ main {
 }
 
 .candidate-info {
-  height: 100vh;
+  height: max-content;
   padding: 20px;
   position: sticky;
   top: 0;
-  /* overflow: scroll; */
+  overflow: auto;
 }
 
 .btn-info {
@@ -100,4 +100,17 @@ main {
 
 .form-control {
   max-width: 80%;
+}
+
+.active-link {
+  border-bottom: 1px solid #fff;
+}
+
+.comments-list {
+  list-style-type: circle;
+}
+
+.candidate-contact {
+  color: black;
+  text-decoration: none;
 }

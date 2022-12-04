@@ -3,7 +3,11 @@ const candidateInfoContainer = document.querySelector('.candidate-card');
 document.querySelector('nav').addEventListener('click', async (event) => {
   event.preventDefault();
   if (event.target.classList.contains('navbar-brand')) {
-    const { href } = event.target;
+    const { href, classList } = event.target;
+    const links = document.querySelectorAll('.navbar-brand');
+    links.forEach((link) => {
+      if (link.classList.contains('active-link')) link.classList.remove('active-link');
+    });
     const data = await fetch(href);
     const cards = await data.text();
     const cardsContainer = document.querySelector('.container');

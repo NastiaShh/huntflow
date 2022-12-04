@@ -9,9 +9,9 @@ module.exports = function CandidateCard({ candidate }) {
       <h5>Телефон:</h5>
       <p>{candidate.phone}</p>
       <h5>Email:</h5>
-      <p>{candidate.email}</p>
+      <a className="candidate-contact" href={'mailto:' + candidate.email} rel="noreferrer" target='_blank'>{candidate.email}</a>
       <h5>Телеграм:</h5>
-      <p>{candidate.telegram}</p>
+      <a className="candidate-contact" href={'https://' + candidate.telegram} rel="noreferrer" target='_blank'>{candidate.telegram}</a>
       <h5>Резюме:</h5>
       <p>{candidate.cv}</p>
       <h5>Этапы подбора</h5>

@@ -13,7 +13,7 @@ module.exports = function MainPage({ candidates }) {
           <div className='main-card'>
             <h1 className='huntflow-title'>Huntflow</h1>
             <h2 className='huntflow-subtitle'>сервис для трекинга кандидатов</h2>
-            <img src="/img/Man_and_woman_with_briefcase_shake_hand_generated.jpg" className="background-img" alt="ыааыаы"/>
+            <img src="/img/Man_and_woman_with_briefcase_shake_hand_generated.jpg" className="background-img" alt="Man and woman"/>
           </div>
         </section>
       </main>
