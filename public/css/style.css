@@ -42,11 +42,22 @@ main {
 }
 
 .canidate-info {
+  height: 100vh;
   padding: 20px;
   position: sticky;
   top: 0;
+  overflow: scroll;
 }
 
 .btn-info {
   margin: 0 auto;
+}
+
+.comment-form {
+  display: flex;
+  column-gap: 10px;
+}
+
+.form-control {
+  max-width: 80%;
 }

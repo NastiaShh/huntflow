@@ -27,5 +27,25 @@ document
 
       candidateInfoContainer.innerHTML = '';
       candidateInfoContainer.insertAdjacentHTML('afterbegin', candidate);
+
+      document.querySelector('.comment-form')
+      .addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const comment = form.comment.value;
+    
+        const response = await fetch(`/api/candidates/${id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ comment }),
+        });
+        const commentText = await response.text();
+        const newComment = `<li className='new-comment'>${commentText}</li>`
+        const commentsList = document.querySelector('.comments-list');
+        commentsList.insertAdjacentHTML('beforeend', newComment);
+        form.reset();
+      });
     }
   });

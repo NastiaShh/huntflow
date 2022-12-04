@@ -1,6 +1,6 @@
 const mainRouter = require('express').Router();
 const { Op } = require('sequelize');
-const { Candidate } = require('../db/models');
+const { Candidate, Comment } = require('../db/models');
 const MainPage = require('../views/MainPage');
 const CardList = require('../views/CardList');
 const CandidateCard = require('../views/CandidateCard');
@@ -105,8 +105,16 @@ mainRouter.get('/api/candidates/denied', async (req, res) => {
 mainRouter.get('/api/candidates/:id', async (req, res) => {
   const candidate = await Candidate.findOne({
     where: { id: Number(req.params.id) },
+    include: [Candidate.Comments],
   });
   res.renderComponent(CandidateCard, { candidate, hideSelect: true });
+});
+
+mainRouter.post('/api/candidates/:id', async (req, res) => {
+  const newComment = await Comment.create(req.body, {candidate_id: req.params.id});
+  newComment.candidate_id = req.params.id;
+  await newComment.save();
+  res.send(newComment.comment);
 });
 
 module.exports = mainRouter;
