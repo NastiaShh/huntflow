@@ -36,9 +36,9 @@ candidateInfoContainer.addEventListener('click', (e) => {
   }
 })
 
-const cardList = document.querySelector('.card-list')
-cardList
-  .addEventListener('click', async (event) => {
+const cardList = document.querySelector('.card-list');
+
+cardList.addEventListener('click', async (event) => {
     if (event.target.classList.contains('btn-info')) {
       event.preventDefault();
       const moreInfoButton = event.target;
@@ -85,10 +85,7 @@ cardList
           form.reset();
         }
       });
-      // const candInfo = document.querySelector('.btn-close').addEventListener( 'click', async(e) =>{
-        
-      //   console.log(12312313)
-      // })
+      
       document.querySelector('.comment-form')
       .addEventListener('submit', async (event) => {
         event.preventDefault();

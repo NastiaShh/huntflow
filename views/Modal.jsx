@@ -21,9 +21,9 @@ function Modal() {
         <div className="modal-dialog">
           <div className="modal-content" style={{textAlign: 'left'}}>
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
+              <h2 className="modal-title fs-5" id="exampleModalLabel">
                 Новый кандидат:
-              </h1>
+              </h2>
               <button
                 type="button"
                 className="btn-close"
@@ -32,7 +32,7 @@ function Modal() {
               />
             </div>
             <div className="modal-body">
-              <span className="close">&times;</span>
+              {/* <span className="close">&times;</span> */}
               <form
                 id="addCandidateForm"
                 action="/api/candidates"
