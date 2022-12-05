@@ -92,3 +92,11 @@ document
       });
     }
   });
+
+  // document.querySelector('.btn-close')
+  // .addEventListener('click', async (event)=>{
+  //   const close = event.target
+  //   if(close){
+
+  //   }
+  // })

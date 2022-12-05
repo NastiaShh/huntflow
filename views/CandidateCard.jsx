@@ -1,54 +1,83 @@
 const React = require("react");
-const Comments = require('./Comments');
+const Comments = require("./Comments");
 
 module.exports = function CandidateCard({ candidate }) {
   return (
     <div id={candidate.id} className="candidate-info">
+
+      <button
+        type="button"
+        className="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      />
+      <h4>Информация об кандидате</h4>
+
       <h4>Информация о кандидате</h4>
+
       <h5>ФИО:</h5>
       <p>{candidate.fullname}</p>
       <h5>Телефон:</h5>
       <p>{candidate.phone}</p>
       <h5>Email:</h5>
-      <p><a className="candidate-contact" href={'mailto:' + candidate.email} rel="noreferrer" target='_blank'>{candidate.email}</a></p>
+      <p>
+        <a
+          className="candidate-contact"
+          href={`mailto:${candidate.email}`}
+          rel="noreferrer"
+          target="_blank"
+        >
+          {candidate.email}
+        </a>
+      </p>
       <h5>Телеграм:</h5>
-      <p><a className="candidate-contact" href={'https://' + candidate.telegram} rel="noreferrer" target='_blank'>{candidate.telegram}</a></p>
+      <p>
+        <a
+          className="candidate-contact"
+          href={`https://${candidate.telegram}`}
+          rel="noreferrer"
+          target="_blank"
+        >
+          {candidate.telegram}
+        </a>
+      </p>
       <h5>Резюме:</h5>
       <p><a className="candidate-contact" href={candidate.cv} rel="noreferrer" target='_blank'>Посмотреть резюме кандидата</a></p>
       <h5 className="h5-stages">Этапы подбора</h5>
-      <h6>Текущий этап:</h6> <span className="current-stage">{candidate.current_stage}</span>
-        <span>
-            <form id='change-stage-form'>
-              <select name="stage" id="stage-select">
-                <option value="">-- Изменить этап --</option>
-                {!candidate.invitation_letter && (
-                  <option value="invitation_letter">Отправлено письмо-приглашение</option>
-                )}
-                {!candidate.screening_call && (
-                  <option value="screening_call">Назначен звонок-скрининг</option>
-                )}
-                {!candidate.video_interview && (
-                  <option value="video_interview">Назначено видеоинтервью</option>
-                )}
-                {!candidate.cv_sent && (
-                  <option value="cv_sent">Резюме передано заказчику</option>
-                )}
-                {!candidate.interview_scheduled && (
-                  <option value="interview_scheduled">Назначено интервью с заказчиком</option>
-                )}
-                {!candidate.offer && (
-                  <option value="offer">Выставлен оффер</option>
-                )}
-                {!candidate.hired && (
-                  <option value="hired">Вышел на работу</option>
-                )}
-                {!candidate.denied && (
-                  <option value="denied">Отказ</option>
-                )}
-              </select>
-              <button type="submit" className="btn btn-success button">Изменить</button>
-            </form>
-        </span>
+      <h6>Текущий этап:</h6>{" "}
+      <span className="current-stage">{candidate.current_stage}</span>
+      <span>
+        <form id="change-stage-form">
+          <select name="stage" id="stage-select">
+            <option value="">-- Изменить этап --</option>
+            {!candidate.invitation_letter && (
+              <option value="invitation_letter">
+                Отправлено письмо-приглашение
+              </option>
+            )}
+            {!candidate.screening_call && (
+              <option value="screening_call">Назначен звонок-скрининг</option>
+            )}
+            {!candidate.video_interview && (
+              <option value="video_interview">Назначено видеоинтервью</option>
+            )}
+            {!candidate.cv_sent && (
+              <option value="cv_sent">Резюме передано заказчику</option>
+            )}
+            {!candidate.interview_scheduled && (
+              <option value="interview_scheduled">
+                Назначено интервью с заказчиком
+              </option>
+            )}
+            {!candidate.offer && <option value="offer">Выставлен оффер</option>}
+            {!candidate.hired && <option value="hired">Вышел на работу</option>}
+            {!candidate.denied && <option value="denied">Отказ</option>}
+          </select>
+          <button type="submit" className="btn btn-success button">
+            Изменить
+          </button>
+        </form>
+      </span>
       <h6>История прохождения этапов подбора:</h6>
       <table className="table table-borderless" id="stages-history">
         <tr>
@@ -92,8 +121,15 @@ module.exports = function CandidateCard({ candidate }) {
         {candidate.interview_scheduled && (
           <tr>
             <td>Назначено интервью с заказчиком</td>
+
+            <td>
+              {candidate.interview_scheduled.toLocaleString().slice(0, 9)}
+            </td>
+            <td>{candidate.interview_scheduled.toLocaleString().slice(11)}</td>
+
             <td>{candidate.interview_scheduled.toLocaleString().slice(0, 9)}</td>
             <td>{candidate.interview_scheduled.toLocaleString().slice(11, 16)}</td>
+
           </tr>
         )}
         {candidate.offer && (
@@ -122,9 +158,16 @@ module.exports = function CandidateCard({ candidate }) {
       {candidate.Comments.length > 0 && (
         <Comments comments={candidate.Comments} />
       )}
-      <form className="comment-form" >
-        <button type="submit" className="btn btn-outline-primary button">Добавить</button>
-        <input type="text" name="comment" className="form-control" placeholder="Комментарий" />
+      <form className="comment-form">
+        <button type="submit" className="btn btn-outline-primary button">
+          Добавить
+        </button>
+        <input
+          type="text"
+          name="comment"
+          className="form-control"
+          placeholder="Комментарий"
+        />
       </form>
     </div>
   );
