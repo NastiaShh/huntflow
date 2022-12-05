@@ -58,62 +58,62 @@ module.exports = function CandidateCard({ candidate }) {
         </tr>
         <tr>
           <td>Кандидат добавлен в систему</td>
-          <td>{candidate.createdAt.toLocaleString().slice(0, 9)}</td>
+          <td>{candidate.createdAt.toLocaleString().slice(0, 11)}</td>
           <td>{candidate.createdAt.toLocaleString().slice(11)}</td>
         </tr>
         {candidate.invitation_letter && (
           <tr>
             <td>Отправлено письмо-приглашение</td>
-            <td>{candidate.invitation_letter.toLocaleString().slice(0, 9)}</td>
+            <td>{candidate.invitation_letter.toLocaleString().slice(0, 11)}</td>
             <td>{candidate.invitation_letter.toLocaleString().slice(11)}</td>
           </tr>
         )}
         {candidate.screening_call && (
           <tr>
             <td>Назначен звонок-скрининг</td>
-            <td>{candidate.screening_call.toLocaleString().slice(0, 9)}</td>
+            <td>{candidate.screening_call.toLocaleString().slice(0, 11)}</td>
             <td>{candidate.screening_call.toLocaleString().slice(11)}</td>
           </tr>
         )}
         {candidate.video_interview && (
           <tr>
             <td>Назначено видеоинтервью</td>
-            <td>{candidate.video_interview.toLocaleString().slice(0, 9)}</td>
+            <td>{candidate.video_interview.toLocaleString().slice(0, 11)}</td>
             <td>{candidate.video_interview.toLocaleString().slice(11)}</td>
           </tr>
         )}
         {candidate.cv_sent && (
           <tr>
             <td>Резюме передано заказчику</td>
-            <td>{candidate.cv_sent.toLocaleString().slice(0, 9)}</td>
+            <td>{candidate.cv_sent.toLocaleString().slice(0, 11)}</td>
             <td>{candidate.cv_sent.toLocaleString().slice(11)}</td>
           </tr>
         )}
         {candidate.interview_scheduled && (
           <tr>
             <td>Назначено интервью с заказчиком</td>
-            <td>{candidate.interview_scheduled.toLocaleString().slice(0, 9)}</td>
+            <td>{candidate.interview_scheduled.toLocaleString().slice(0, 11)}</td>
             <td>{candidate.interview_scheduled.toLocaleString().slice(11)}</td>
           </tr>
         )}
         {candidate.offer && (
           <tr>
             <td>Выставлен оффер</td>
-            <td>{candidate.offer.toLocaleString().slice(0, 9)}</td>
+            <td>{candidate.offer.toLocaleString().slice(0, 11)}</td>
             <td>{candidate.offer.toLocaleString().slice(11)}</td>
           </tr>
         )}
         {candidate.hired && (
           <tr>
             <td>Вышел на работу</td>
-            <td>{candidate.hired.toLocaleString().slice(0, 9)}</td>
+            <td>{candidate.hired.toLocaleString().slice(0, 11)}</td>
             <td>{candidate.hired.toLocaleString().slice(11)}</td>
           </tr>
         )}
         {candidate.denied && (
           <tr>
             <td>Отказ</td>
-            <td>{candidate.denied.toLocaleString().slice(0, 9)}</td>
+            <td>{candidate.denied.toLocaleString().slice(0, 11)}</td>
             <td>{candidate.denied.toLocaleString().slice(11)}</td>
           </tr>
         )}
