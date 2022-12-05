@@ -4,7 +4,7 @@ main {
 
 .nav {
   min-height: 6vh;
-  background-color: #0a3140!important;
+  background-color: #0a3140 !important;
 }
 
 .container {
@@ -87,7 +87,7 @@ main {
 
 .btn-info:active,
 .button.active {
-  background-color: #fff!important;
+  background-color: #fff !important;
 }
 
 .huntflow-title {
@@ -140,6 +140,6 @@ h4 {
   color: #a63247;
 }
 
-.btn-outline-success {
-  margin-left: 10px;
-}
+  .btn-outline-success {
+    margin-left: 10px;
+  }
