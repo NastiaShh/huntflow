@@ -62,7 +62,7 @@ document
             <tr>
               <td>${stageText}</td>
               <td>${currentDate.toLocaleString().slice(1, 11)}</td>
-              <td>${currentDate.toLocaleString().slice(12, 20)}</td>
+              <td>${currentDate.toLocaleString().slice(12, 17)}</td>
             </tr>
           `;
           const stagesHistoryTable = document.querySelector('#stages-history');
