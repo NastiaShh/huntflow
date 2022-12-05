@@ -7,13 +7,11 @@ module.exports = function CandidateCard({ candidate }) {
 
       <button
         type="button"
-        className="btn-close"
+        className="btn-close close-info"
         data-bs-dismiss="modal"
         aria-label="Close"
       />
-      
       <h4>Информация о кандидате</h4>
-
       <h5>ФИО:</h5>
       <p>{candidate.fullname}</p>
       <h5>Телефон:</h5>
@@ -147,9 +145,13 @@ module.exports = function CandidateCard({ candidate }) {
         )}
       </table>
       <h5 className="h5-comments">Комментарии:</h5>
-      {candidate.Comments.length > 0 && (
-        <Comments comments={candidate.Comments} />
-      )}
+      
+      <ul className='comments-list'>
+        {candidate.Comments.length > 0 && (
+          <Comments comments={candidate.Comments} />
+        )}
+      </ul>
+
       <form className="comment-form">
         <button type="submit" className="btn btn-outline-primary button">
           Добавить
