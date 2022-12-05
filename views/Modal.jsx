@@ -56,7 +56,7 @@ function Modal() {
                   id="exampleFormControlTextarea1"
                   rows="3"
                 />
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-primary button" type="submit">
                   Сохранить
                 </button>
               </form>
@@ -64,7 +64,7 @@ function Modal() {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-secondary button"
                 data-bs-dismiss="modal"
               >
                 Выход

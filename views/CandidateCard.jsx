@@ -121,15 +121,8 @@ module.exports = function CandidateCard({ candidate }) {
         {candidate.interview_scheduled && (
           <tr>
             <td>Назначено интервью с заказчиком</td>
-
-            <td>
-              {candidate.interview_scheduled.toLocaleString().slice(0, 9)}
-            </td>
-            <td>{candidate.interview_scheduled.toLocaleString().slice(11)}</td>
-
             <td>{candidate.interview_scheduled.toLocaleString().slice(0, 9)}</td>
             <td>{candidate.interview_scheduled.toLocaleString().slice(11, 16)}</td>
-
           </tr>
         )}
         {candidate.offer && (
