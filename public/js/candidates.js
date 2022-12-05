@@ -24,21 +24,36 @@ document.querySelector('nav').addEventListener('click', async (event) => {
   }
 });
 
-document
-  .querySelector('.card-list')
+candidateInfoContainer.addEventListener('click', (e) => {
+  if(e.target.classList.contains('btn-close')) {
+    candidateInfoContainer.innerHTML = `
+      <div class='main-card'>
+        <h1 class='huntflow-title'>Huntflow</h1>
+        <h2 class='huntflow-subtitle'>сервис для трекинга кандидатов</h2>
+        <img src="/img/Man_and_woman_with_briefcase_shake_hand_generated.jpg" class="background-img" alt="Man and woman"/>
+      </div>
+    `;
+  }
+})
+
+const cardList = document.querySelector('.card-list')
+cardList
   .addEventListener('click', async (event) => {
     if (event.target.classList.contains('btn-info')) {
       event.preventDefault();
       const moreInfoButton = event.target;
       const candidateCard = moreInfoButton.closest('.card');
-      const id = Number(candidateCard.id);
 
+      
+      
+      const id = Number(candidateCard.id);
+      
       const data = await fetch(`/api/candidates/${id}`);
       const candidate = await data.text();
-
+      
       candidateInfoContainer.innerHTML = '';
       candidateInfoContainer.insertAdjacentHTML('afterbegin', candidate);
-
+      
       document.querySelector('#change-stage-form')
       .addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -70,7 +85,10 @@ document
           form.reset();
         }
       });
-
+      // const candInfo = document.querySelector('.btn-close').addEventListener( 'click', async(e) =>{
+        
+      //   console.log(12312313)
+      // })
       document.querySelector('.comment-form')
       .addEventListener('submit', async (event) => {
         event.preventDefault();
